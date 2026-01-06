@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise de Desempenho - Kitesurf</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏄‍♂️ Análise de Desempenho - Kitesurf</h1>
+            <p class="subtitle">Sistema de Avaliação de Performance</p>
+        </header>
+
+        <div class="main-content">
+            <div class="left-panel">
+                <div class="card">
+                    <h2>Selecionar Aluno</h2>
+                    <div class="student-grid" id="studentGrid">
+                        <!-- Students will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Critérios de Avaliação</h2>
+                    <div class="criteria-list" id="criteriaList">
+                        <!-- Criteria will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <div class="card chart-card">
+                    <h2 id="studentName">Selecione um Aluno</h2>
+                    <div class="chart-container">
+                        <canvas id="radarChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="card stats-card">
+                    <h2>Estatísticas</h2>
+                    <div class="stats-grid" id="statsGrid">
+                        <div class="stat-item">
+                            <span class="stat-label">Média Geral</span>
+                            <span class="stat-value" id="avgScore">-</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Melhor Critério</span>
+                            <span class="stat-value" id="bestCriteria">-</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">A Melhorar</span>
+                            <span class="stat-value" id="worstCriteria">-</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Progresso</span>
+                            <span class="stat-value" id="progress">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
