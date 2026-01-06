@@ -4,11 +4,14 @@ app.py
 
 App Streamlit para análise de desempenho de alunos de kitesurf.
 Mostra gráficos radar (spider) para critérios:
+- teoria
 - controle
 - comando
-- bodydrag
-- contra_vento_prancha
-- teoria
+- flexibilidade
+- forca
+- baddrag
+- prancha
+- contra_vento
 
 Funcionalidades:
 - Carregar CSV com notas (ou usar dataset de exemplo integrado)
@@ -27,11 +30,14 @@ import plotly.graph_objects as go
 
 # ====== Configurações ======
 CRITERIA = [
+    ("teoria", "Teoria"),
     ("controle", "Controle"),
     ("comando", "Comando"),
-    ("bodydrag", "Bodydrag"),
-    ("contra_vento_prancha", "Contra vento / prancha"),
-    ("teoria", "Teoria"),
+    ("flexibilidade", "Flexibilidade"),
+    ("forca", "Força"),
+    ("baddrag", "Baddrag"),
+    ("prancha", "Prancha"),
+    ("contra_vento", "Contra Vento"),
 ]
 CRITERIA_KEYS = [c[0] for c in CRITERIA]
 CRITERIA_LABELS = [c[1] for c in CRITERIA]
@@ -102,7 +108,7 @@ def radar_figure(df_selected, title=""):
     ))
     fig.update_layout(
         polar=dict(
-            radialaxis=dict(visible=True, range=[0, 10]),
+            radialaxis=dict(visible=True, range=[0, 100]),
         ),
         showlegend=True,
         title=title
@@ -140,7 +146,7 @@ with st.sidebar:
 
     st.markdown("---")
     st.header("Filtros")
-    min_score = st.slider("Nota mínima (filtrar alunos com todas notas >=)", 0, 10, 0)
+    min_score = st.slider("Nota mínima (filtrar alunos com todas notas >=)", 0, 100, 0)
     only_below = st.checkbox("Mostrar apenas alunos com alguma nota abaixo da média geral", value=False)
 
 # Aplicar filtros

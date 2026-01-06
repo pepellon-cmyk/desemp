@@ -1,27 +1,78 @@
 # App: Análise de Desempenho — Alunos de Kitesurf
 
-Aplicação em Python (Streamlit) para visualização de desempenho de alunos de kitesurf usando gráficos radar (spider).
+Sistema de análise de performance para alunos de kitesurf com interface moderna e gráfico radar.
 
-Recursos:
-- Gráfico radar por aluno ou múltiplos alunos sobrepostos
-- Critérios: controle, comando, bodydrag, contra_vento_prancha, teoria
-- Dataset de exemplo com 25 alunos incluído (`students.csv`)
-- Upload de CSV próprio com as mesmas colunas
-- Filtros, estatísticas e exportação CSV
+## 🌊 Características
 
-Como usar (local):
-1. Instale dependências:
-   - Recomendo usar um ambiente virtual
-   - pip install -r requirements.txt
+- **25 Alunos**: Sistema configurado para gerenciar 25 alunos
+- **8 Critérios de Avaliação** (escala 0-100):
+  - Teoria
+  - Controle
+  - Comando
+  - Flexibilidade
+  - Força
+  - Baddrag
+  - Prancha
+  - Contra Vento
 
-2. Rode a app:
-   - streamlit run app.py
+## 📊 Duas Implementações Disponíveis
 
-Formato do CSV esperado:
-- Colunas obrigatórias: `nome`, `controle`, `comando`, `bodydrag`, `contra_vento_prancha`, `teoria`
-- Exemplo: `nome,controle,comando,bodydrag,contra_vento_prancha,teoria`
+### 1. Versão HTML/JavaScript (Standalone)
+Interface web moderna que funciona direto no navegador.
 
-Arquivo de exemplo:
-- `students.csv` já presente com 25 alunos de exemplo. Edite-o ou carregue o seu próprio CSV.
+**Como usar:**
+1. Abra o arquivo `index.html` em um navegador web moderno
+2. Clique em qualquer botão de aluno (Aluno 1 a Aluno 25)
+3. Visualize o gráfico radar e as estatísticas atualizadas
 
-Licença: MIT (uso livre para personalização)
+**Funcionalidades:**
+- Gráfico radar desenhado com Canvas API
+- Estatísticas em tempo real (média, melhor critério, área a melhorar, nível)
+- Design inovador com gradientes e animações
+- Totalmente offline - não precisa de servidor
+
+**Tecnologias:**
+- HTML5, CSS3, JavaScript puro
+- Canvas API para gráfico radar
+- Design responsivo
+
+### 2. Versão Python/Streamlit
+Aplicação Python interativa com recursos avançados de análise.
+
+**Como usar (local):**
+1. Instale as dependências (recomendado usar ambiente virtual):
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. Execute a aplicação:
+   ```bash
+   streamlit run app.py
+   ```
+
+**Funcionalidades:**
+- Gráfico radar interativo com Plotly
+- Comparação de múltiplos alunos sobrepostos
+- Upload de CSV personalizado
+- Filtros avançados
+- Estatísticas detalhadas
+- Exportação de dados em CSV
+- Visualização de média da turma
+
+**Formato do CSV esperado:**
+- Colunas obrigatórias: `nome`, `teoria`, `controle`, `comando`, `flexibilidade`, `forca`, `baddrag`, `prancha`, `contra_vento`
+- Valores de 0 a 100 para cada critério
+- Arquivo de exemplo: `students.csv` (incluído com 25 alunos)
+
+## 🎨 Design (Versão HTML)
+
+Interface com tema escuro inovador:
+- Gradientes animados de fundo
+- Cards com efeito glass morphism
+- Esquema de cores ciano/azul com efeitos de brilho
+- Animações suaves e transições
+- Layout responsivo para diferentes dispositivos
+
+## 📝 Licença
+
+MIT (uso livre para personalização)
