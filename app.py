@@ -42,6 +42,7 @@ CRITERIA = [
 CRITERIA_KEYS = [c[0] for c in CRITERIA]
 CRITERIA_LABELS = [c[1] for c in CRITERIA]
 EXAMPLE_CSV = Path(__file__).with_name("students.csv")
+MAX_STUDENTS_TO_COMPARE = 10
 
 st.set_page_config(page_title="Análise de Desempenho - Kitesurf", layout="wide")
 
@@ -166,9 +167,9 @@ if filtered.empty:
 st.subheader("Seleção de alunos")
 col1, col2 = st.columns([2, 1])
 with col1:
-    selected = st.multiselect("Escolha um ou mais alunos para comparar (máx 10 por vez)", options=filtered["nome"].tolist(), default=[filtered["nome"].iloc[0]])
+    selected = st.multiselect(f"Escolha um ou mais alunos para comparar (máx {MAX_STUDENTS_TO_COMPARE} por vez)", options=filtered["nome"].tolist(), default=[filtered["nome"].iloc[0]])
 with col2:
-    compare_avg = st.checkbox("Comparar com média da turma (todas os alunos)", value=True)
+    compare_avg = st.checkbox("Comparar com média da turma (todos os alunos)", value=True)
 
 if not selected:
     st.warning("Selecione pelo menos um aluno.")
@@ -192,7 +193,7 @@ st.table(stats)
 
 # Mostrar média da turma (opcional)
 if compare_avg:
-    st.subheader("Média da turma (todas os registros carregados)")
+    st.subheader("Média da turma (todos os registros carregados)")
     class_mean = df[CRITERIA_KEYS].mean()
     mean_df = pd.DataFrame({"Critério": CRITERIA_LABELS, "Média": class_mean.values})
     st.table(mean_df)
